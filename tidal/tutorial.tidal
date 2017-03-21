@@ -1,0 +1,37 @@
+-- tutorial.tidal
+-- (c) 2017 by Milan Gruner
+-- Lots of random sounds! :D
+
+bps (120/60)
+
+hush
+
+d1 $ sound "bd:3 sn:2 bd:2 [bd sn:3 sn:3 bd:3]"
+d2 $ sound "hh hh hh hh"
+d3 $ sound "arpy(6,8)" # speed "[1 0.5, 1.5 2 3 4 7 2 8 10 12]" # shape "0.8" # resonance "0.9" # attack "0 1 0.5 0.2 1"
+d3 $ sound "arpy*3 cp" # speed "[1 0.5, 1.5 2 3 4]"
+
+d1 silence
+
+d1 $ sound "[bd sn sn, hh hh hh hh] bd sn bd"
+d2 $ sound "[bd bd] [bd [sn sn], sn], sn bd]"
+
+d2 $ slow 2 $ sound "arpy*12" # up "2 7 4 3 1 8 9 10 4 5 6 7"
+
+d1 $ sound "bd(3,8) sn(5,8,2)" # up "4 6 8 12"
+
+hush
+
+d1 $ sound "bd bd . sn sn sn . bd sn bd sn"
+
+d1 $ sound "[bd bd bd, [sn sn] cp, arpy [arpy arpy] arpy arpy, odx]"
+
+d1 $ sound "bd bd:4*2 cp sn"
+d2 $ sound "arpy*10 hh arpy*10 cp sn" # speed "[1 0.5, 1.5 2 3 4]"
+
+d1 $ density 1 $ sound "cp? bd:2*15 sn/2 bd:2? cp*5"
+d2 $ slow 2 $ rev (sound "[bd:2*15 sn:3*3? cp cp?]/2")
+
+d1 $ every 4 (density 4) $ sound "bd*2 [bd [sn sn*2 sn] sn]"
+
+d1 $ sound "bd*15 cp sn arpy*4 . cp cp" # gain "0.8" # delay "0.5" # shape "0.3"

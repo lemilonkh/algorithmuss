@@ -1,0 +1,54 @@
+-- experiments.tidal
+-- (c) 2017 by Milan Gruner
+
+hush
+
+-- set cycles per second
+cps 1
+-- set tempo of 120 BPM
+bps (120/60)
+
+d1 $ sound "arpy:3(3,5,2)*8" # up (run 3) # shape "0.8 0.2 0.1 0.7"
+
+d1 $ sound "sn:3*64" # shape tri1 # pan sine1 -- # speed (run 8)
+
+d1 $ sound "bd*16 sn*8" # pan sine1 # speed (density 2.5 $ tri1)
+
+-- crazy sweeping rhythm
+d2 $ stack [
+  sound "bd*2 cp sn:2*8 bd:3*6" # speed (scale 7 8 $ tri1) # pan sine1,
+  sound "hh*32" # cutoff (scale 500 1220 $ slow 2 $ sine1) # resonance "0.7"
+]
+-- sound "arpy(6,8) . [sn*5? cp:1*10]" # speed (scale 2 2 $ sine1) # delay "0.5 0.8 0.2 1.0"
+
+-- multi bar pattern
+d1 $ slowcat [
+  sound "cp*2 sn*3" # vowel "[a e i o e]" # pan sine1,
+  sound "cp*2 sn*3" # vowel "[u u a o e]" # pan sine1 # shape (scale 0.3 0.7 sine1),
+  sound "cp*2 sn*3" # vowel "[o i i i e]" # pan sine1,
+  sound (samples "drum*4" "0 1 2 3 4 4") # shape (scale 0.3 0.7 sine1)
+]
+
+-- multi sound pattern
+d2 $ stack [
+  --sound "arpy*8" # speed "0.5 1.0 0.5 1.0",
+  sound "arpy(5,6,12)" # speed rand # shape rand
+]
+
+d1 silence
+
+-- time shifting/ shuffling
+d1 $ stack [
+  every 3 (0.25 <~) $ sound "bd*2 sn:3*2 hh sn",
+  every 3 (0.25 ~>) $ sound "bd sn:3 hh sn*2",
+  every 6 (0.5 ~>) $ sound "sn:3*2 sn hh bd"
+]
+
+d3 $ sound (samples "bd*8?" "0 1 1 2 4*3 3") # speed "43 3 50 1 50 1 4 50" # pan sine1
+
+-- random melody
+d2 $ s "arpy*8?" # n (irand 37) # delay "0.8" # shape sine1
+
+d2 $ s "arpy(7,8,2)" # n "37 30 27 18 19 22 27 37 35" # delay "0.8" # shape sine1
+
+hush
