@@ -25,23 +25,28 @@ d1 $ stack [
 d1 $ slow 2 $ sound "bd ~ hh bd ~ sn:3 ~ ~ bd*4 ~ hh ~ sn*2 ~ hh" # delay "0"
 
 -- quirky half-step rhythm
-d1 $ slow 2 $ sound (samples "[bd:7(2,7,6), sn:3(5,8,3)]" "2 3 3 2 0 1 6") # shape "0.8 0.2 0.6 0.3" # shape (scale 0.2 0.8 tri1)
+d1 $ slow 1 $ sound (samples "[bd:7(5,8,6), sn:3(5,8,3)]" "2 3 3 1 3 2 6") # shape "0.8 0.2 0.6 0.3" # shape (scale 0.2 0.8 tri1)
 d1 silence
-d2 $ slow 2 $ sound (samples "[hh(16,32,2)]" (irand 10)) # shape "0.5" # speed (scale 0.01 2 sine1)
+d2 $ slow 1 $ sound (samples "[hh(16,32,2)]" (irand 19)) # shape "0.7" # speed (scale 0.01 4 sine1)
 d2 silence
 
 hush
 
 -- fuckaaa rhythm (best!)
-d1 $ stack [
-  density 1 $ sound (samples "[bd(3,8), sn(2,8,6)]" "0 1 1 3 2")
+d1 $ slow 2 $ stack [
+  density 2 $ sound (samples "[bd(3,8), sn(2,8,6)]" "0 1 1 3 2")
     # delay "0.8"
     # pan (scale 0.25 0.75 rand)
-    # shape (scale 0.3 0.8 sine1),
-  every 4 (density 4) $ sound (samples "hh(5,8,6)" (irand 4))
+    # shape (scale 0.3 0.4 sine1),
+  every 4 (density 4) $ sound (samples "bass1(4,8,2)" (irand 20))
+    # sustain "0.8"
+    # shape "0.6",
+  every 8 (density 4) $ sound (samples "hh(14,16,4) hh" (irand 16))
+    # shape (scale 0.2 0.4 sine1)
 ]
 
 hush
 
 -- quirky melody+drill combination
 d2 $ slow 4 $ sound (samples "sn*12 casio*7 sn cp bd*14" "1 3 4 7 8 3") # speed (scale 0.5 2 rand)
+d2 silence
