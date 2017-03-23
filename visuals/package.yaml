@@ -1,0 +1,10 @@
+name: algorithmuss-visuals
+source-dirs: ./
+dependencies:
+ - base
+ - hylide
+ - hylogen
+ - vector-space
+ - profunctors
+ - lens
+library: {}

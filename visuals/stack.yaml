@@ -1,0 +1,8 @@
+flags: {}
+extra-package-dbs: []
+packages:
+- '.'
+extra-deps:
+- hylide-0.1.5.0
+- hylogen-0.1.5.0
+resolver: lts-7.5
