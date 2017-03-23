@@ -1,0 +1,16 @@
+-- drumulous.tidal
+-- (c) 2017 by Milan Gruner
+
+bps (120/60)
+hush
+d1 silence
+d2 silence
+
+d1 $ sound (samples "[bd*7 bd kd hh, sn sn hh*16 sn sn] " "0 0 0 0 0 0 0") # shape "0.7"
+
+d1 $ slow 1 $ sound "[kd:2(7,9,2) sn:7(2,9,5) hh(16, 18, 0)]" # shape (scale 0.3 0.7 sine1) # pan (scale 0.25 0.75 sine1) # sustain (scale 1 3 saw1)
+
+d2 $ slow 1 $ sound (samples "arpy(7,9,2)" (irand 16))
+  # shape (scale 0.2 0.7 sine1)
+  # sustain sine1
+  # hpf "600 1200 1800 100 200"
