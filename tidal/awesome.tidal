@@ -1,0 +1,35 @@
+-- swing.tidal
+-- (c) 2017 by Milan Gruner
+
+bps (90/60)
+
+-- plain awesome
+d1 $ slow 2 $ stack [
+  density 2 $ sound (samples "[bd:3(3,8), sn:3(2,8,6)]" "0 1 1 3 2")
+    # delay "0.8"
+    # pan (scale 0.25 0.75 rand)
+    # shape (scale 0.2 0.3 sine1),
+  every 4 (density 4) $ sound "arpy:3(5,8,2)"
+    # sustain "2"
+    # attack "0.1"
+    # n "1 2 3 7 8 6 3 4 4 4 4"
+    # shape "0.3",
+  every 2 (density 2) $ sound (samples "hh(14,16,4) hh" (irand 13))
+    # shape (scale 0.2 0.6 sine1)
+    # sustain sine1
+]
+
+d1 $ stack [
+  every 4 (density 2) $ sound "[kd:2 (5,6,1), sn:6 (5,6,3), hh 12 (5,6,2)]"
+    # shape (scale 0.2 0.6 saw),
+  sound "bass:6(5,6)" # n "5 7 3 5 8 5 9 1" # shape (scale 0.2 0.8 saw1)
+]
+
+d2 $ stack [
+  sound "hh*12" # attack (scale 0.01 0.2 sine1),
+  every 3 (density 1) $ sound "bass:6(3,3,0)"
+    # n "3 1 3 1 5 1 "
+    # shape "0.9"
+]
+
+hush
