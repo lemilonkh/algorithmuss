@@ -1,0 +1,21 @@
+-- striation.tidal
+-- (c) 2017 by Milan Gruner
+-- inspired by kindohm (Mike Hodnik)
+
+bps (100/120)
+
+d1 $ stack [
+  sound "lkd lcp [~ lkd] lcp",
+  sound "lhh*8",
+  every 3 (0.25 ~>) $
+  within (0.25, 0.75) (density 2) $
+  within (0.75, 1) (|+| speed "1.25") $
+  degradeBy 0.5 $
+  slow 16 $
+  striate 128 $
+  sound "amen" |+| delay "0.4"
+]
+|+| delayfeedback "0.4"
+|+| delaytime "0.48"
+
+hush
