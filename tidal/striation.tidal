@@ -2,18 +2,31 @@
 -- (c) 2017 by Milan Gruner
 -- inspired by kindohm (Mike Hodnik)
 
-bps (100/120)
+bps (180/60)
+
+sound "lkd lcp [~ lkd] lcp",
+sound "lhh*8",
+
+d1 $ slow 2 $ slowcat [
+  sound "amen:1",
+  sound "amen:5",
+  sound "[amen:4 amen:2]",
+  sound "[amen:3, amen:6]"
+]
+
+# shape "0.7"
+# sustain "0.0"
+
+ sound "[amen:4, amen:2] amen:5 amen:1"
 
 d1 $ stack [
-  sound "lkd lcp [~ lkd] lcp",
-  sound "lhh*8",
-  every 3 (0.25 ~>) $
-  within (0.25, 0.75) (density 2) $
-  within (0.75, 1) (|+| speed "1.25") $
-  degradeBy 0.5 $
-  slow 16 $
-  striate 128 $
-  sound "amen" -- :146 is max
+  every 3 (0.25 ~>)
+  $ within (0.25, 0.75) (density 2)
+  $ within (0.75, 1) (|+| speed "1.25")
+  $ degradeBy 1
+  $ slow 16
+  $ striate 128
+  $ sound "amen:2" -- :146 is max
   |+| delay "0.4"
 ]
 |+| delayfeedback "0.4"

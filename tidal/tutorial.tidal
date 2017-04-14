@@ -8,8 +8,15 @@ hush
 
 d1 $ sound "bd:3 sn:2 bd:2 [bd sn:3 sn:3 bd:3]"
 d2 $ sound "hh hh hh hh"
-d3 $ sound "arpy(6,8)" # speed "[1 0.5, 1.5 2 3 4 7 2 8 10 12]" # shape "0.8" # resonance "0.9" # attack "0 1 0.5 0.2 1"
-d3 $ sound "arpy*3 cp" # speed "[1 0.5, 1.5 2 3 4]"
+d3
+  $ sound "arpy(6,8)"
+  # speed "[1 0.5, 1.5 2 3 4 7 2 8 10 12]"
+  # shape "0.8"
+  # resonance "0.9"
+  # attack "0 1 0.5 0.2 1"
+d3
+  $ sound "arpy*3 cp"
+  # speed "[1 0.5, 1.5 2 3 4]"
 
 d1 silence
 

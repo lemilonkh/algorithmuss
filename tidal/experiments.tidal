@@ -6,7 +6,7 @@ hush
 -- set cycles per second
 cps 1
 -- set tempo of 120 BPM
-bps (120/60)
+bps (140/60)
 
 d1 $ sound "arpy:5(7,5,2)" # up (run 5) # shape "0.8 0.2 0.1 0.7"
 
@@ -32,7 +32,7 @@ d1 $ slowcat [
 -- multi sound pattern
 d2 $ stack [
   --sound "arpy*8" # speed "0.5 1.0 0.5 1.0",
-  sound "arpy(5,6,12)" # speed rand # shape rand
+  d2 $ sound "arpy(5,6,12)" # speed rand # shape rand
 ]
 
 d1 silence
