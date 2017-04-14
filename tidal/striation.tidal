@@ -13,7 +13,8 @@ d1 $ stack [
   degradeBy 0.5 $
   slow 16 $
   striate 128 $
-  sound "amen" |+| delay "0.4"
+  sound "amen" -- :146 is max
+  |+| delay "0.4"
 ]
 |+| delayfeedback "0.4"
 |+| delaytime "0.48"

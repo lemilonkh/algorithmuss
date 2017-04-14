@@ -5,7 +5,7 @@ bps (210/60)
 
 hush
 
-d1 $ e 5 8 $ sound "bd sn"
+d1 $ e 5 9 $ sound "bd:3 sn:2 hh hh" # shape "0.4"
 d2 $ sound "bd:3(4,8)"
 
 d1 $ e 5 17 2 $ sound "bd [sn*2, hh]"
@@ -15,8 +15,8 @@ d1 $ sound "sn:3([13 6 3]/2,8)"
 d1 $ sound "[bd(3,8) , sn(4,9) , hh(5,11)]"
 
 -- try them out here:
-d1 $ slow 1 $ sound "sn:1(3,2,1)?"
-d2 $ slow 1 $ sound "bd:2(3,2,4)"
+d1 $ slow 1 $ sound "sn:1(3,4,1)?"
+d2 $ slow 1 $ sound "bd:2(3,4,2)"
 
 d1 $ sound (samples "bd*2 sn bd sn" "3 2 3 1")
 

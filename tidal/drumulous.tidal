@@ -6,7 +6,7 @@ hush
 d1 silence
 d2 silence
 
-d1 $ sound (samples "[bd*7 bd kd hh, sn sn hh*16 sn sn] " "0 0 0 0 0 0 0") # shape "0.7" # pan (scale 0.25 0.75 sine1)
+d1 $ sound (samples "[bd*7 bd kd hh, sn sn hh*2 sn*8 sn] " "0 0 0 1 0 2 0") # shape "0.7" # pan (scale 0.25 0.75 sine1)
 
 d1 $ slow 1 $ sound "[kd:2(10,9,2) sn:7(4,9,3) hh(15, 18, 2)]"
   # shape (scale 0.3 0.7 sine1)

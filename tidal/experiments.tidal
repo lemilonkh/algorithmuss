@@ -8,7 +8,7 @@ cps 1
 -- set tempo of 120 BPM
 bps (120/60)
 
-d1 $ sound "arpy:3(3,5,2)*8" # up (run 3) # shape "0.8 0.2 0.1 0.7"
+d1 $ sound "arpy:5(7,5,2)" # up (run 5) # shape "0.8 0.2 0.1 0.7"
 
 d1 $ sound "sn:3*64" # shape tri1 # pan sine1 -- # speed (run 8)
 
